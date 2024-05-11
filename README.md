@@ -1,32 +1,68 @@
-![App Brewery Banner](https://github.com/londonappbrewery/Images/blob/master/AppBreweryBanner.png)
+# Downnsouth Medical Center Mobile App
+
+![Downnsouth Medical Center Logo](images/logo.png)
+
+## Overview
+
+This repository contains the source code for the Downnsouth Medical Center mobile app. The app provides various features to facilitate better communication and interaction between patients and the medical center.
+
+## Features
+
+- **Appointment Booking**: Patients can book appointments with doctors through the app.
+- **Doctor Information**: Provides details about doctors working at Downnsouth Medical Center.
+- **Notifications**: Keeps users informed about their upcoming appointments and any important updates from the medical center.
+- **Medical Records Access**: Patients can access their medical records securely through the app.
+- **Location and Contact Information**: Provides location details and contact information of the medical center.
+
+## Technologies Used
+
+- **Frontend**: 
+  - Flutter
+  
+- **Backend**:
+  - (If applicable) Node.js with Express.js
+  - (If applicable) MongoDB for database
+  
+- **Other Tools**:
+  - Git & GitHub for version control
+  - (Any other tools or libraries used in the project)
+
+## Installation
+
+1. Clone this repository.
+   ```bash
+   git clone https://github.com/Dhanith-Randula/DownSouth-Medical-Center-Mobile-App.git
+
+2.Navigate to the project directory.
+
+cd downnsouth-medical-center-app
+
+3.Install dependencies.
+
+npm install
+
+4.(If applicable) Set up backend server and database.
+
+Instructions for setting up the backend can be found in the backend/README.md file.
+
+5.Run the app.
+npm start
 
 
-# Flash Chat ⚡️
 
-## Our Goal
-
-The objective of this tutorial is to learn how to incorporate Firebase into our Flutter apps. We'll be using Firebase Cloud Firestore as well as the Firebase authentication package to equip our app with a cloud-based NoSQL database and secure authentication methods. 
+Contributing
 
 
-## What you will create
+If you'd like to contribute to this project, please follow these guidelines:
 
-We’re going to build a modern messaging app where users can sign up and log in to chat.
+1.	Fork the repository.
+2.	Create your feature branch.
+git checkout -b feature/YourFeature
+3.	Commit your changes.
+git commit -m "Add your feature or fix"
+4.	Push to the branch.
+git push origin feature/YourFeature
+5.	Open a pull request.
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-![Finished App](https://github.com/londonappbrewery/Images/blob/master/flash_chat_flutter_demo.gif)
-
-## What you will learn
-
-- How to incorporate Firebase into your Flutter projects.
-- How to use Firebase authentication to register and sign in users.
-- How to create beautiful animations using the Flutter Hero widget.
-- How to create custom aniamtions using Flutter's animation controller. 
-- Learn all about mixins and how they differ from superclasses.
-- Learn about Streams and how they work.
-- Learn to use ListViews to build scrolling views.
-- How to use Firebase Cloud Firestore to store and retrieve data on the fly.
-
-
-
->This is a companion project to The App Brewery's Complete Flutter Development Bootcamp, check out the full course at [www.appbrewery.co](https://www.appbrewery.co/)
-
-![End Banner](https://github.com/londonappbrewery/Images/blob/master/readme-end-banner.png)
