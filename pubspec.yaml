@@ -1,0 +1,51 @@
+name: flash_chat
+description: A new Flutter application.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0<3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  google_maps_flutter: ^2.0.10
+  geocoding: ^2.0.0
+  time_picker_widget:
+  flutter_datetime_picker:
+  map_picker:
+  # location:
+  flutter_lints: ^2.0.0
+  http: ^0.13.3  # Add this line
+  flutter_slidable: ^0.6.0 
+  xml: ^5.3.1
+
+  cupertino_icons: ^1.0.8
+  animated_text_kit: ^4.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - images/
+    - images/logo.png
+    - images/image1.jpg
+    - images/image2.jpg
+    - images/image3.jpg
+    - images/image4.jpg
+    - images/image5.jpeg
+    # - images/image6.png
+    # - images/image7.png
+    # - images/image8.png
+  fonts:
+    - family: Cinzel
+      fonts:
+        - asset: fonts/Cinzel-VariableFont_wght.ttf
+    - family: DancingScript
+      fonts:
+        - asset: fonts/DancingScript-VariableFont_wght.ttf
+
