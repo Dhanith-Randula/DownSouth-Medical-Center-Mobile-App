@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flash_chat/screens/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/components/image_text_homepage.dart';
 import 'package:flash_chat/screens/login_screen.dart';
@@ -126,10 +127,10 @@ class _HomePageState extends State<HomePage>
                   onPressed1: () {
                     Navigator.pushNamed(context, LoginScreen.id);
                   },
-                  title2: 'Log Out',
-                  image2: AssetImage('images/logout1.png'),
+                  title2: 'SETTING',
+                  image2: AssetImage('images/setting.png'),
                   onPressed2: () {
-                    Navigator.pushNamed(context, WelcomeScreen.id);
+                    Navigator.pushNamed(context, SettingsPage.id);
                   },
                 ),
               ],

@@ -5,6 +5,7 @@ import 'package:flash_chat/screens/welcome_screen.dart';
 import 'package:flash_chat/screens/login_screen.dart';
 import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:flash_chat/screens/Welcome.dart';
+import 'package:flash_chat/screens/setting.dart';
 
 void main() => runApp(MedicalCenter());
 
@@ -14,7 +15,7 @@ class MedicalCenter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: WelcomePage.id,
+      initialRoute: SettingsPage.id,
       routes: {
         WelcomePage.id: (context) => WelcomePage(),
         WelcomeScreen.id: (context) => WelcomeScreen(),
@@ -22,6 +23,7 @@ class MedicalCenter extends StatelessWidget {
         RegistrationScreen.id: (context) => RegistrationScreen(),
         HomePage.id: (context) => HomePage(),
         CustomerDashboardPage.id: (context) => CustomerDashboardPage(),
+        SettingsPage.id: (context) => SettingsPage(),
       },
     );
   }

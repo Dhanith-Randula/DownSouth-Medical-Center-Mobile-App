@@ -60,7 +60,7 @@ class RowImageText extends StatelessWidget {
                   width: 150,
                   height: 150,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 38, 181, 238).withOpacity(0.5),
+                    color: Color.fromARGB(131, 2, 53, 53).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(10.0),
                     border: Border.all(color: Colors.black, width: 3.0),
                     image: DecorationImage(

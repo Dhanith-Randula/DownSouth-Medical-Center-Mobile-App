@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flash_chat/components/config.dart';
+
 import 'package:http/http.dart' as http;
-import 'dart:convert';
+
 import 'dart:developer' as dev;
-import 'package:flutter_slidable/flutter_slidable.dart';
+
 import 'package:xml/xml.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
@@ -23,6 +23,13 @@ class _CustomerDashboardPageState extends State<CustomerDashboardPage> {
   final List markers = [];
 
   final TextEditingController _nameController = TextEditingController();
+
+  int distnese_calculation(double lat1, double lon1, double lat2, double lon2) {
+    
+
+    
+    return 50;
+  }
 
   void search() async {
     var url = Uri.parse(getItemToCustomer);
