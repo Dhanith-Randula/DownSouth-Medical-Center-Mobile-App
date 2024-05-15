@@ -1,12 +1,12 @@
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flash_chat/screens/login_screen.dart';
+import 'package:flash_chat/screens/signin_screen.dart';
 import 'package:flash_chat/components/roundedbutton.dart';
 
 void main() {
   testWidgets('LoginScreen Widget Test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(LoginScreen());
+    await tester.pumpWidget(SignInScreen());
 
     // Verify that our widget is working well.
     // For example, let's find a RaisedButton widget and tap on it

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flash_chat/components/settingList.dart';
-import 'package:flash_chat/screens/login_screen.dart';
+import 'package:flash_chat/screens/signin_screen.dart';
 
 class SettingsPage extends StatefulWidget {
   static const String id = 'setting_screen';
@@ -99,7 +99,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   settingList(
                     title: 'Log Out',
                     onPressed: () {
-                      Navigator.pushNamed(context, LoginScreen.id);
+                      Navigator.pushNamed(context, SignInScreen.id);
                       // Handle tap
                     },
                   ),

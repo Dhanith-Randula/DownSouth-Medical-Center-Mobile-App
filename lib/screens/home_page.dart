@@ -2,8 +2,8 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flash_chat/screens/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/components/image_text_homepage.dart';
-import 'package:flash_chat/screens/login_screen.dart';
-import 'package:flash_chat/screens/welcome_screen.dart';
+import 'package:flash_chat/screens/signin_screen.dart';
+
 import 'package:flash_chat/screens/search_map_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage>
                   title2: 'Name 2',
                   image2: AssetImage('images/image2.jpg'),
                   onPressed2: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
+                    Navigator.pushNamed(context, SignInScreen.id);
                   },
                 ),
                 SizedBox(
@@ -110,12 +110,12 @@ class _HomePageState extends State<HomePage>
                   title1: 'Name 3',
                   image1: AssetImage('images/image3.jpg'),
                   onPressed1: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
+                    Navigator.pushNamed(context, SignInScreen.id);
                   },
                   title2: 'Name 4',
                   image2: AssetImage('images/image4.jpg'),
                   onPressed2: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
+                    Navigator.pushNamed(context, SignInScreen.id);
                   },
                 ),
                 SizedBox(
@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage>
                   title1: 'Name 5',
                   image1: AssetImage('images/image5.jpeg'),
                   onPressed1: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
+                    Navigator.pushNamed(context, SignInScreen.id);
                   },
                   title2: 'SETTING',
                   image2: AssetImage('images/setting.png'),
