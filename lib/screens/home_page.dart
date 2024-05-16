@@ -3,6 +3,7 @@ import 'package:flash_chat/screens/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/components/image_text_homepage.dart';
 import 'package:flash_chat/screens/signin_screen.dart';
+import 'package:flash_chat/screens/find_medical_center.dart';
 
 import 'package:flash_chat/screens/search_map_page.dart';
 
@@ -97,10 +98,10 @@ class _HomePageState extends State<HomePage>
                   onPressed1: () {
                     Navigator.pushNamed(context, CustomerDashboardPage.id);
                   },
-                  title2: 'Name 2',
+                  title2: 'FIND MEDICAL CENTER',
                   image2: AssetImage('images/image2.jpg'),
                   onPressed2: () {
-                    Navigator.pushNamed(context, SignInScreen.id);
+                    Navigator.pushNamed(context, FindMedicalCenter.id);
                   },
                 ),
                 SizedBox(
