@@ -25,7 +25,7 @@ This repository contains the source code for the Downnsouth Medical Center mobil
   
 - **Other Tools**:
   - Git & GitHub for version control
-  - (Any other tools or libraries used in the project)
+    
 
 ## Installation
 
