@@ -8,6 +8,7 @@ import 'package:flash_chat/screens/signup_screen.dart';
 import 'package:flash_chat/screens/welcome_screen.dart';
 import 'package:flash_chat/screens/forget_passsword_screen.dart';
 import 'package:flash_chat/screens/find_medical_center.dart';
+import 'package:flash_chat/screens/myAppoinment.dart';
 
 
 void main() => runApp(MedicalCenter());
@@ -24,6 +25,7 @@ class MedicalCenter extends StatelessWidget {
         CustomerDashboardPage.id: (context) => CustomerDashboardPage(),
         SettingsPage.id: (context) => SettingsPage(),
         FindMedicalCenter.id: (context) => FindMedicalCenter(),
+        MyAppoinment.id: (context) => MyAppoinment(),
         
         SignInScreen.id: (context) => SignInScreen(),
         ForgetPasswordScreen.id: (context) => ForgetPasswordScreen(),

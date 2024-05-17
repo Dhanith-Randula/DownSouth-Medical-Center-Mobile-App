@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flash_chat/components/image_text_homepage.dart';
 import 'package:flash_chat/screens/signin_screen.dart';
 import 'package:flash_chat/screens/find_medical_center.dart';
+import 'package:flash_chat/screens/myAppoinment.dart';
 
 import 'package:flash_chat/screens/search_map_page.dart';
 
@@ -108,10 +109,10 @@ class _HomePageState extends State<HomePage>
                   height: 10,
                 ),
                 RowImageText(
-                  title1: 'Name 3',
+                  title1: 'MY APPOINMENT',
                   image1: AssetImage('images/image3.jpg'),
                   onPressed1: () {
-                    Navigator.pushNamed(context, SignInScreen.id);
+                    Navigator.pushNamed(context, MyAppoinment.id);
                   },
                   title2: 'Name 4',
                   image2: AssetImage('images/image4.jpg'),
