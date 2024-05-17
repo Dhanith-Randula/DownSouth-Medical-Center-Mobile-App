@@ -1,5 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/rendering/box.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+Future<void> _launchURL(String url) async {
+  final Uri uri = Uri.parse(url);
+  if (await canLaunchUrl(uri)) {
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $url';
+    }
+  } else {
+    throw 'Could not launch $url';
+  }
+}
 
 class FindMedicalCenter extends StatefulWidget {
   static const String id = 'FindMedicalCenter';
@@ -14,9 +25,16 @@ class _FindMedicalCenterState extends State<FindMedicalCenter> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(144, 189, 188, 188),
         leading: BackButton(),
-        title: Text('Find Medical Center'),
+        title: Text(
+          'Find Medical Center',
+          style: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+        centerTitle: true,
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -82,7 +100,43 @@ class _FindMedicalCenterState extends State<FindMedicalCenter> {
                         ),
                         leading: Image.asset('images/medical_center.jpg'),
                         onTap: () {
-                          print('Medical Center 1');
+                          _launchURL(
+                              'https://www.google.com/maps/dir/?api=1&destination=1234+Main+St');
+                        },
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text('Book Now'),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(188, 170, 170, 170),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: ListTile(
+                        leading: Image.asset('images/medical_center.jpg'),
+                        title: Text(
+                          'Medical Center 2',
+                        ), // Change the title here
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                                'Address: 5678 Main St'), // Change the address here
+                            Text(
+                                'Phone: 098-765-4321'), // Change the phone number here
+                            Text(
+                                'Doctors: Dr. John Doe,Dr. Jane Smith'), // Change the doctors here
+                            Text('Owner: Jane Smith'), // Change the owner here
+                            Text('Rating: 4.5/5.0'), // Change the rating here
+                            Text(
+                                'Hours: 8:00 AM - 5:00 PM') // Change the hours here
+                          ],
+                        ),
+                        onTap: () {
+                          _launchURL(
+                              'https://www.google.com/maps/dir/?api=1&destination=5678+Main+St'); // Change the print statement here
                         },
                       ),
                     ),
