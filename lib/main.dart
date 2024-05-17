@@ -18,7 +18,7 @@ class MedicalCenter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: FindMedicalCenter.id,
+      initialRoute: WelcomeScreen.id,
       routes: {
         HomePage.id: (context) => HomePage(),
         CustomerDashboardPage.id: (context) => CustomerDashboardPage(),
