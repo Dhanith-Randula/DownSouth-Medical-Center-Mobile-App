@@ -9,7 +9,7 @@ import 'package:flash_chat/screens/welcome_screen.dart';
 import 'package:flash_chat/screens/forget_passsword_screen.dart';
 import 'package:flash_chat/screens/find_medical_center.dart';
 import 'package:flash_chat/screens/myAppoinment.dart';
-
+import 'package:flash_chat/screens/emergency.dart';
 
 void main() => runApp(MedicalCenter());
 
@@ -19,18 +19,20 @@ class MedicalCenter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: WelcomeScreen.id,
+      initialRoute: EmergencyDetailsPage.id,
       routes: {
         HomePage.id: (context) => HomePage(),
         CustomerDashboardPage.id: (context) => CustomerDashboardPage(),
         SettingsPage.id: (context) => SettingsPage(),
         FindMedicalCenter.id: (context) => FindMedicalCenter(),
         MyAppoinment.id: (context) => MyAppoinment(),
-        
         SignInScreen.id: (context) => SignInScreen(),
         ForgetPasswordScreen.id: (context) => ForgetPasswordScreen(),
         SignUpScreen.id: (context) => SignUpScreen(),
         WelcomeScreen.id: (context) => WelcomeScreen(),
+
+
+        EmergencyDetailsPage.id: (context) => EmergencyDetailsPage(),
       },
     );
   }

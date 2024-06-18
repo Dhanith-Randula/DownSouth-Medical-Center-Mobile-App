@@ -114,7 +114,7 @@ class _HomePageState extends State<HomePage>
                   onPressed1: () {
                     Navigator.pushNamed(context, MyAppoinment.id);
                   },
-                  title2: 'Name 4',
+                  title2: 'EMERGENCY',
                   image2: AssetImage('images/image4.jpg'),
                   onPressed2: () {
                     Navigator.pushNamed(context, SignInScreen.id);
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage>
                   height: 10,
                 ),
                 RowImageText(
-                  title1: 'Name 5',
+                  title1: 'HOSPITALS',
                   image1: AssetImage('images/image5.jpeg'),
                   onPressed1: () {
                     Navigator.pushNamed(context, SignInScreen.id);
