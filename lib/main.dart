@@ -19,7 +19,7 @@ class MedicalCenter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: EmergencyDetailsPage.id,
+      initialRoute: WelcomeScreen.id,
       routes: {
         HomePage.id: (context) => HomePage(),
         CustomerDashboardPage.id: (context) => CustomerDashboardPage(),
@@ -30,8 +30,6 @@ class MedicalCenter extends StatelessWidget {
         ForgetPasswordScreen.id: (context) => ForgetPasswordScreen(),
         SignUpScreen.id: (context) => SignUpScreen(),
         WelcomeScreen.id: (context) => WelcomeScreen(),
-
-
         EmergencyDetailsPage.id: (context) => EmergencyDetailsPage(),
       },
     );
