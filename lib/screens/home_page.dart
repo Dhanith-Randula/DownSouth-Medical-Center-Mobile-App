@@ -7,6 +7,7 @@ import 'package:flash_chat/screens/find_medical_center.dart';
 import 'package:flash_chat/screens/myAppoinment.dart';
 
 import 'package:flash_chat/screens/search_map_page.dart';
+import 'package:flash_chat/screens/emergency.dart';
 
 class HomePage extends StatefulWidget {
   static const String id = 'home_page';
@@ -117,7 +118,7 @@ class _HomePageState extends State<HomePage>
                   title2: 'EMERGENCY',
                   image2: AssetImage('images/image4.jpg'),
                   onPressed2: () {
-                    Navigator.pushNamed(context, SignInScreen.id);
+                    Navigator.pushNamed(context, EmergencyDetailsPage.id);
                   },
                 ),
                 SizedBox(

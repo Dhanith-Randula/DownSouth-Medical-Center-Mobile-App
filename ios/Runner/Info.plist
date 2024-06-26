@@ -45,6 +45,15 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo Library usage</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camara usage</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone usage</string>
+
+
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
   		<string>http</string>

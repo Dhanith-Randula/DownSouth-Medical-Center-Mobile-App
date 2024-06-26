@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flash_chat/components/settingList.dart';
 import 'package:flash_chat/screens/signin_screen.dart';
+import 'package:flash_chat/screens/accountDetails.dart';
 
 class SettingsPage extends StatefulWidget {
   static const String id = 'setting_screen';
@@ -49,15 +50,24 @@ class _SettingsPageState extends State<SettingsPage> {
                       child: Padding(
                         padding: const EdgeInsets.only(
                             top: 10.0, left: 10, right: 10),
-                        child: AnimatedTextKit(
-                          animatedTexts: [
-                            TypewriterAnimatedText('SETTINGS',
-                                textStyle: TextStyle(
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.w900,
-                                  color: Colors.black,
-                                ),
-                                textAlign: TextAlign.center),
+                        child: Row(
+                          children: [
+                            IconButton(
+                              icon: Icon(Icons.arrow_back,
+                                  color: Colors.black, size: 30.0),
+                              onPressed: () => Navigator.of(context).pop(),
+                            ),
+                            AnimatedTextKit(
+                              animatedTexts: [
+                                TypewriterAnimatedText('SETTINGS',
+                                    textStyle: TextStyle(
+                                      fontSize: 40,
+                                      fontWeight: FontWeight.w900,
+                                      color: Colors.black,
+                                    ),
+                                    textAlign: TextAlign.center),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -67,9 +77,9 @@ class _SettingsPageState extends State<SettingsPage> {
                     height: 40.0,
                   ),
                   settingList(
-                    title: 'Acount',
+                    title: 'Acount Details',
                     onPressed: () {
-                      // Handle tap
+                      Navigator.pushNamed(context, AccountDetails.id);
                     },
                   ),
                   settingList(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'appointmentPage(Book Now).dart';
 
 Future<void> _launchURL(String url) async {
   final Uri uri = Uri.parse(url);
@@ -106,7 +107,9 @@ class _FindMedicalCenterState extends State<FindMedicalCenter> {
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppointmentPage.id);
+                      },
                       child: Text('Book Now'),
                     ),
                     Container(

@@ -1,7 +1,16 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/screens/signin_screen.dart';
 import 'package:flash_chat/theme/theme.dart';
 import 'package:flash_chat/components/custom_scaffold.dart';
+import 'package:flutter/widgets.dart';
+import 'dart:developer' as dev;
+import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+import 'package:path/path.dart';
+import 'package:flash_chat/components/uploadImage.dart';
 
 class SignUpScreen extends StatefulWidget {
   static const String id = 'SignUp_screen';
@@ -14,6 +23,59 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formSignupKey = GlobalKey<FormState>();
   bool agreePersonalData = true;
+
+  final nameController = TextEditingController();
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+  final countryController = TextEditingController();
+  final phoneNumberController = TextEditingController();
+
+  Uint8List? _image;
+  final picker = ImagePicker();
+
+  Future selectImage() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      _image = await pickedFile.readAsBytes();
+      setState(() {});
+    }
+  }
+
+  void signup() async {
+    var uri = Uri.parse("https://ds-central.onrender.com/tourist");
+    dev.log("signup");
+
+    var request = http.MultipartRequest('POST', uri)
+      ..fields['name'] = nameController.text
+      ..fields['username'] = usernameController.text
+      ..fields['password'] = passwordController.text
+      ..fields['country'] = countryController.text
+      ..fields['phone_number'] = phoneNumberController.text;
+
+    if (_image != null) {
+      request.files.add(
+        http.MultipartFile.fromBytes(
+          'image', // consider 'image' as a key for the image file
+          _image!,
+          filename: 'image.jpg', // you can change this with the desired name
+          contentType: MediaType('file', 'jpeg'),
+        ),
+      );
+    }
+
+    dev.log("request" + request.toString());
+    dev.log("request" + request.fields.toString());
+
+    var response = await request.send();
+    if (response.statusCode == 201) {
+      var responseBody = await response.stream.bytesToString();
+      dev.log(responseBody);
+      // dev.log(response.toString());
+    } else {
+      dev.log('Failed to upload!');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
@@ -53,10 +115,38 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                       const SizedBox(
-                        height: 40.0,
+                        height: 20.0,
+                      ),
+                      Stack(
+                        children: [
+                          _image != null
+                              ? CircleAvatar(
+                                  radius: 50,
+                                  backgroundImage: MemoryImage(_image!),
+                                )
+                              : CircleAvatar(
+                                  radius: 50,
+                                  backgroundImage:
+                                      AssetImage('images/backman.jpg'),
+                                ),
+                          Positioned(
+                            bottom: 0,
+                            right: 0,
+                            child: IconButton(
+                              onPressed: () async {
+                                await selectImage();
+                              },
+                              icon: const Icon(Icons.add_a_photo),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20.0,
                       ),
                       // full name
                       TextFormField(
+                        controller: nameController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter Full name';
@@ -88,6 +178,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       // email
                       TextFormField(
+                        controller: usernameController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter Email';
@@ -114,11 +205,75 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                       ),
+
+                      const SizedBox(
+                        height: 25.0,
+                      ),
+                      TextFormField(
+                        controller: countryController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter Country';
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                          label: const Text('Country'),
+                          hintText: 'Enter Your Country',
+                          hintStyle: const TextStyle(
+                            color: Colors.black26,
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Colors.black12, // Default border color
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Colors.black12, // Default border color
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 25.0,
+                      ),
+                      TextFormField(
+                        controller: phoneNumberController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter Phone Number';
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                          label: const Text('Phone Number'),
+                          hintText: 'Enter Your Phone Number',
+                          hintStyle: const TextStyle(
+                            color: Colors.black26,
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Colors.black12, // Default border color
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Colors.black12, // Default border color
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
                       const SizedBox(
                         height: 25.0,
                       ),
                       // password
                       TextFormField(
+                        controller: passwordController,
                         obscureText: true,
                         obscuringCharacter: '*',
                         validator: (value) {
@@ -150,7 +305,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SizedBox(
                         height: 25.0,
                       ),
-                      // i agree to the processing
+
                       Row(
                         children: [
                           Checkbox(
@@ -184,7 +339,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () {
+                          onPressed: () async {
+                            signup();
                             if (_formSignupKey.currentState!.validate() &&
                                 agreePersonalData) {
                               ScaffoldMessenger.of(context).showSnackBar(

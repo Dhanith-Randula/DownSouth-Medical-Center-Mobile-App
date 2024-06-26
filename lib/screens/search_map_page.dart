@@ -8,6 +8,7 @@ import 'dart:developer' as dev;
 
 import 'package:xml/xml.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'dart:convert';
 
 String getItemToCustomer = 'https://example.com';
 
@@ -25,37 +26,37 @@ class _CustomerDashboardPageState extends State<CustomerDashboardPage> {
   final TextEditingController _nameController = TextEditingController();
 
   int distnese_calculation(double lat1, double lon1, double lat2, double lon2) {
-    
-
-    
     return 50;
   }
 
   void search() async {
-    var url = Uri.parse(getItemToCustomer);
+    var url = Uri.parse(
+        'https://ds-m-center.onrender.com/api/v1/m_center/search_by_destination');
     url = url.replace(queryParameters: {
-      // Add query parameters here
-      "name": _nameController.text,
+      "destination": _nameController.text,
     });
     dev.log("url ${url.toString()}");
 
     var response = await http.get(url);
-    var document = XmlDocument.parse(response.body);
+    dev.log("response ${response.body}");
+    //var document = XmlDocument.parse(response.body);
 
-    var place = document.findAllElements('success').toList();
-    var locs = place;
+    List<dynamic> responseBody = jsonDecode(response.body);
 
-    dev.log("\n\n place ${locs.toString()}");
+List<Marker> newMarkers = [];
 
-    List newMarkers = [];
-
-    for (var location in place) {
-      var latitude = location.getAttribute('location');
-      dev.log("\n\nlatitude ${latitude.toString()}");
-
-      newMarkers.add(latitude);
-    }
-    dev.log("\n\n new markers  >> ${newMarkers.toString()}");
+for (var item in responseBody) {
+  var coordinates = item['location']['coordinates'];
+  var latitude = coordinates[1];
+  var longitude = coordinates[0];
+  newMarkers.add(
+    Marker(
+      markerId: MarkerId(item['_id']),
+      position: LatLng(latitude, longitude),
+    ),
+  );
+}
+dev.log("\n\n new markers  >> ${newMarkers.toString()}");
 
     setState(() {
       markers.clear();
@@ -85,15 +86,24 @@ class _CustomerDashboardPageState extends State<CustomerDashboardPage> {
             children: [
               Container(
                 padding: const EdgeInsets.only(top: 50.0, left: 10, right: 10),
-                child: AnimatedTextKit(
-                  animatedTexts: [
-                    TypewriterAnimatedText(
-                      'Search your Medical Center',
-                      textStyle: TextStyle(
-                        fontSize: 25.0,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.black,
-                      ),
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.arrow_back,
+                          color: Colors.black, size: 30.0),
+                      onPressed: () => Navigator.of(context).pop(),
+                    ),
+                    AnimatedTextKit(
+                      animatedTexts: [
+                        TypewriterAnimatedText(
+                          'Search your Medical Center',
+                          textStyle: TextStyle(
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.w900,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -138,10 +148,16 @@ class _CustomerDashboardPageState extends State<CustomerDashboardPage> {
                     ),
                     zoom: 8,
                   ),
-                  markers: Set<Marker>.from(markers.map((e) => Marker(
-                        markerId: MarkerId(e.toString()),
-                        position: LatLng(e[0], e[1]),
-                      ))),
+                  // markers: Set<Marker>.from(
+                  //   markers.map(
+                  //     (e) => Marker(
+                  //       markerId: MarkerId(e.toString()),
+                  //       position: LatLng(e[0], e[1]),
+                  //     ),
+                  //   ),
+                  // ),
+                  markers: new Set<Marker>.from(markers)            
+                  ,
                 ),
               ),
             ],
