@@ -1,8 +1,15 @@
+import 'package:flash_chat/screens/secure_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/components/custom_scaffold.dart';
 import '../theme/theme.dart';
 import 'package:flash_chat/screens/signup_screen.dart';
 import 'package:flash_chat/screens/home_page.dart';
+import 'dart:developer' as dev;
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flash_chat/screens/secure_storage.dart';
 
 class SignInScreen extends StatefulWidget {
   static const String id = 'SignIn_screen';
@@ -13,6 +20,62 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  final storage = FlutterSecureStorage();
+
+  // await storage.delete(key: 'jwt');
+
+  void signin() async {
+    var uri = Uri.parse("http://192.168.1.102:4000/auth/api/v1/auth/login");
+    dev.log("signup");
+
+    var request = http.MultipartRequest('POST', uri)
+      ..fields['username'] = usernameController.text
+      ..fields['password'] = passwordController.text;
+
+    dev.log("request ${request.toString()}");
+    dev.log("request ${request.fields.toString()}");
+
+    var response = await request.send();
+    if (response.statusCode == 200) {
+      var responseBody = await response.stream.bytesToString();
+      dev.log('Response body: $responseBody');
+
+      Map<String, dynamic> responseBodyJson = jsonDecode(responseBody);
+      String id = responseBodyJson['_id'];
+      String username = responseBodyJson['username'];
+      String user_type = responseBodyJson['user_type'];
+      String token = responseBodyJson['token'];
+      // dev.log('User type: $user_type');
+      // dev.log('Token: $token');
+      SecureStorage().writeSecureData('id', id);
+      SecureStorage().writeSecureData('username', username);
+      SecureStorage().writeSecureData('user_type', user_type);
+      SecureStorage().writeSecureData('token', token);
+
+      // await storage.write(key: 'jwt', value: 'hi');
+      dev.log('Token saved');
+      SecureStorage().readSecureData('id');
+      SecureStorage().readSecureData('username');
+      SecureStorage().readSecureData('user_type');
+      String t = await SecureStorage().readSecureData('token');
+      dev.log('Token from storage: $t');
+
+      // String? tokend = await storage.read(key: 'jwt');
+      // dev.log('Token from storage: ${tokend}');
+      if (user_type == 'tourist') {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomePage(),
+          ),
+        );
+      }
+    }
+  }
+
   final _formSignInKey = GlobalKey<FormState>();
   bool rememberPassword = true;
   @override
@@ -55,6 +118,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         height: 40.0,
                       ),
                       TextFormField(
+                        controller: usernameController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter Email';
@@ -85,6 +149,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         height: 25.0,
                       ),
                       TextFormField(
+                        controller: passwordController,
                         obscureText: true,
                         obscuringCharacter: '*',
                         validator: (value) {
@@ -156,7 +221,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, HomePage.id);
+                            signin();
                             // if (_formSignInKey.currentState!.validate() &&
                             //     rememberPassword) {
                             //   ScaffoldMessenger.of(context).showSnackBar(

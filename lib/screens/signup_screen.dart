@@ -42,7 +42,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void signup() async {
-    var uri = Uri.parse("https://ds-central.onrender.com/tourist");
+    var uri = Uri.parse("http://192.168.1.102:4000/");
     dev.log("signup");
 
     var request = http.MultipartRequest('POST', uri)
