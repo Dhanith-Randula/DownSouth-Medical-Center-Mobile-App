@@ -80,29 +80,28 @@ class _FindMedicalCenterState extends State<FindMedicalCenter> {
                         },
                       ),
                     ),
-                    // Add more widgets here
                     Container(
                       decoration: BoxDecoration(
                         color: Color.fromARGB(188, 170, 170, 170),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: ListTile(
-                        title: Text('Medical Center 1'),
+                        title: Text('Asiri Laboratories'),
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Address: 1234 Main St'),
-                            Text('Phone: 123-456-7890'),
-                            Text('Doctors: Dr. John Doe,Dr. Jane Smith'),
-                            Text('Owner: John Doe'),
+                            Text('Address:  No.10 Wakwella Rd, Galle 80000'),
+                            Text('Phone: 0914 640 640'),
+                            Text('Email: asirila@gmail.com'),
+                            Text('Owner: Asiri'),
                             Text('Rating: 4.5/5.0'),
-                            Text('Hours: 8:00 AM - 5:00 PM')
+                            Text('Hours: Open 24 hours')
                           ],
                         ),
                         leading: Image.asset('images/medical_center.jpg'),
                         onTap: () {
                           _launchURL(
-                              'https://www.google.com/maps/dir/?api=1&destination=1234+Main+St');
+                              'https://maps.app.goo.gl/3QK9LpMAcMaWMY6W8');
                         },
                       ),
                     ),
@@ -120,33 +119,26 @@ class _FindMedicalCenterState extends State<FindMedicalCenter> {
                       child: ListTile(
                         leading: Image.asset('images/medical_center.jpg'),
                         title: Text(
-                          'Medical Center 2',
-                        ), // Change the title here
+                          'Ruhunu Hospital',
+                        ),
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                                'Address: 5678 Main St'), // Change the address here
-                            Text(
-                                'Phone: 098-765-4321'), // Change the phone number here
-                            Text(
-                                'Doctors: Dr. John Doe,Dr. Jane Smith'), // Change the doctors here
-                            Text('Owner: Jane Smith'), // Change the owner here
-                            Text('Rating: 4.5/5.0'), // Change the rating here
-                            Text(
-                                'Hours: 8:00 AM - 5:00 PM') // Change the hours here
+                            Text('Address: Galle 80000'),
+                            Text('Phone: 0917 694 059'),
+                            Text('Email: ruhunuhospital@gmail.com'),
+                            Text('Hours: Open 24 hours')
                           ],
                         ),
                         onTap: () {
                           _launchURL(
-                              'https://www.google.com/maps/dir/?api=1&destination=5678+Main+St'); // Change the print statement here
+                              'https://maps.app.goo.gl/3DPKnJNgqQz9ieqw8'); // Change the print statement here
                         },
                       ),
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        // Handle the "Book Now" button press
-                        print('Book Now');
+                        Navigator.pushNamed(context, AppointmentPage.id);
                       },
                       child: Text('Book Now'),
                     ),

@@ -55,9 +55,9 @@ class _SignUpScreenState extends State<AccountDetails> {
     if (_image != null) {
       request.files.add(
         http.MultipartFile.fromBytes(
-          'image', // consider 'image' as a key for the image file
+          'image',
           _image!,
-          filename: 'image.jpg', // you can change this with the desired name
+          filename: 'image.jpg',
           contentType: MediaType('file', 'jpeg'),
         ),
       );
@@ -171,13 +171,13 @@ class _SignUpScreenState extends State<AccountDetails> {
                               ),
                               border: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Colors.black12, // Default border color
+                                  color: Colors.black12,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Colors.black12, // Default border color
+                                  color: Colors.black12,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -205,13 +205,13 @@ class _SignUpScreenState extends State<AccountDetails> {
                               ),
                               border: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Colors.black12, // Default border color
+                                  color: Colors.black12,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Colors.black12, // Default border color
+                                  color: Colors.black12,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -239,13 +239,13 @@ class _SignUpScreenState extends State<AccountDetails> {
                               ),
                               border: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Colors.black12, // Default border color
+                                  color: Colors.black12,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Colors.black12, // Default border color
+                                  color: Colors.black12,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -273,13 +273,13 @@ class _SignUpScreenState extends State<AccountDetails> {
                               ),
                               border: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Colors.black12, // Default border color
+                                  color: Colors.black12,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Colors.black12, // Default border color
+                                  color: Colors.black12,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -309,13 +309,13 @@ class _SignUpScreenState extends State<AccountDetails> {
                               ),
                               border: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Colors.black12, // Default border color
+                                  color: Colors.black12,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: Colors.black12, // Default border color
+                                  color: Colors.black12,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),

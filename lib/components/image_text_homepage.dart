@@ -33,7 +33,7 @@ class RowImageText extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10.0),
                     border: Border.all(color: Colors.black, width: 3.0),
                     image: DecorationImage(
-                      image: image1, // replace with your image path
+                      image: image1, 
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -50,7 +50,7 @@ class RowImageText extends StatelessWidget {
             ],
           ),
         ),
-        // Add this line (10 pixels of space between the images
+      
         Expanded(
           child: Column(
             children: [
@@ -64,7 +64,7 @@ class RowImageText extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10.0),
                     border: Border.all(color: Colors.black, width: 3.0),
                     image: DecorationImage(
-                      image: image2, // replace with your image path
+                      image: image2, 
                       fit: BoxFit.cover,
                     ),
                   ),

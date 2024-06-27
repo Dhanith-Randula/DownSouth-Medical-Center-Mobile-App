@@ -35,12 +35,10 @@ class EmergencyDetailsPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(
-                'images/background_image.jpg'), // replace with your image
+            image: AssetImage('images/background_image.jpg'),
             fit: BoxFit.cover,
           ),
-          color: Color.fromARGB(157, 255, 255, 255)
-              .withOpacity(0.5), // this makes the color white with 50% opacity
+          color: Color.fromARGB(157, 255, 255, 255).withOpacity(0.5),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),

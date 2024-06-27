@@ -1,6 +1,6 @@
 {
-    "name": "flash_chat",
-    "short_name": "flash_chat",
+    "name": "medical",
+    "short_name": "medical",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -25,9 +25,9 @@ class _CustomerDashboardPageState extends State<CustomerDashboardPage> {
 
   final TextEditingController _nameController = TextEditingController();
 
-  int distnese_calculation(double lat1, double lon1, double lat2, double lon2) {
-    return 50;
-  }
+  // int distnese_calculation(double lat1, double lon1, double lat2, double lon2) {
+  //   return 50;
+  // }
 
   void search() async {
     var url = Uri.parse(
@@ -43,20 +43,20 @@ class _CustomerDashboardPageState extends State<CustomerDashboardPage> {
 
     List<dynamic> responseBody = jsonDecode(response.body);
 
-List<Marker> newMarkers = [];
+    List<Marker> newMarkers = [];
 
-for (var item in responseBody) {
-  var coordinates = item['location']['coordinates'];
-  var latitude = coordinates[1];
-  var longitude = coordinates[0];
-  newMarkers.add(
-    Marker(
-      markerId: MarkerId(item['_id']),
-      position: LatLng(latitude, longitude),
-    ),
-  );
-}
-dev.log("\n\n new markers  >> ${newMarkers.toString()}");
+    for (var item in responseBody) {
+      var coordinates = item['location']['coordinates'];
+      var latitude = coordinates[1];
+      var longitude = coordinates[0];
+      newMarkers.add(
+        Marker(
+          markerId: MarkerId(item['_id']),
+          position: LatLng(latitude, longitude),
+        ),
+      );
+    }
+    dev.log("\n\n new markers  >> ${newMarkers.toString()}");
 
     setState(() {
       markers.clear();
@@ -70,17 +70,15 @@ dev.log("\n\n new markers  >> ${newMarkers.toString()}");
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(
-                'images/background_image.jpg'), // replace with your image
+            image: AssetImage('images/background_image.jpg'),
             fit: BoxFit.cover,
           ),
-          color: const Color.fromARGB(85, 255, 255, 255)
-              .withOpacity(0.5), // this makes the color white with 50% opacity
+          color: const Color.fromARGB(85, 255, 255, 255).withOpacity(0.5),
         ),
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.5),
-            borderRadius: BorderRadius.circular(15.0), // Add this line
+            borderRadius: BorderRadius.circular(15.0),
           ),
           child: Column(
             children: [
@@ -133,10 +131,9 @@ dev.log("\n\n new markers  >> ${newMarkers.toString()}");
                 style: ButtonStyle(
                   side: MaterialStateProperty.all<BorderSide>(BorderSide(
                       color: Color.fromARGB(255, 94, 92, 92), width: 2.0)),
-                  minimumSize: MaterialStateProperty.all<Size>(
-                      Size(100, 50)), // Set the size
+                  minimumSize: MaterialStateProperty.all<Size>(Size(100, 50)),
                   backgroundColor: MaterialStateProperty.all<Color>(
-                      Color.fromARGB(137, 155, 153, 153)), // Set the color
+                      Color.fromARGB(137, 155, 153, 153)),
                 ),
               ),
               Expanded(
@@ -148,16 +145,11 @@ dev.log("\n\n new markers  >> ${newMarkers.toString()}");
                     ),
                     zoom: 8,
                   ),
-                  // markers: Set<Marker>.from(
-                  //   markers.map(
-                  //     (e) => Marker(
+                  // markers: Set<Marker>.from(markers.map((e) => Marker(
                   //       markerId: MarkerId(e.toString()),
                   //       position: LatLng(e[0], e[1]),
-                  //     ),
-                  //   ),
-                  // ),
-                  markers: new Set<Marker>.from(markers)            
-                  ,
+                  //     ))),
+                  markers: Set<Marker>.from(markers),
                 ),
               ),
             ],

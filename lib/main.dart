@@ -13,25 +13,23 @@ import 'package:flash_chat/screens/emergency.dart';
 import 'package:flash_chat/screens/appointmentPage(Book Now).dart';
 import 'package:flash_chat/screens/AccountDetails.dart';
 import 'package:flash_chat/screens/support.dart';
+import 'package:flash_chat/screens/terms.dart';
+import 'package:flash_chat/screens/aboutus.dart';
 
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:geolocator/geolocator.dart';
-import 'dart:async';
-import 'dart:developer' as dev;
+// import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+// import 'package:geolocator/geolocator.dart';
+// import 'dart:async';
+// import 'dart:developer' as dev;
 
 void main() => runApp(MedicalCenter());
 
 class MedicalCenter extends StatelessWidget {
   const MedicalCenter({Key? key}) : super(key: key);
 
-  
-
   @override
   Widget build(BuildContext context) {
-    
-
     return MaterialApp(
-      initialRoute: CustomerDashboardPage.id,
+      initialRoute: WelcomeScreen.id,
       routes: {
         HomePage.id: (context) => HomePage(),
         CustomerDashboardPage.id: (context) => CustomerDashboardPage(),
@@ -46,10 +44,9 @@ class MedicalCenter extends StatelessWidget {
         AppointmentPage.id: (context) => AppointmentPage(),
         AccountDetails.id: (context) => AccountDetails(),
         SupportPage.id: (context) => SupportPage(),
+        TermsPage.id: (context) => TermsPage(),
+        AboutUsPage.id: (context) => AboutUsPage(),
       },
     );
-    
   }
 }
-
-

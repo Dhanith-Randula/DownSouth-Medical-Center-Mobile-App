@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flash_chat/components/settingList.dart';
 import 'package:flash_chat/screens/signin_screen.dart';
-import 'package:flash_chat/screens/accountDetails.dart';
+import 'package:flash_chat/screens/AccountDetails.dart';
+import 'package:flash_chat/screens/support.dart';
+import 'package:flash_chat/screens/terms.dart';
 
 class SettingsPage extends StatefulWidget {
   static const String id = 'setting_screen';
@@ -17,12 +19,10 @@ class _SettingsPageState extends State<SettingsPage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(
-                'images/background_image.jpg'), // replace with your image
+            image: AssetImage('images/background_image.jpg'),
             fit: BoxFit.cover,
           ),
-          color: const Color.fromARGB(85, 255, 255, 255)
-              .withOpacity(0.5), // this makes the color white with 50% opacity
+          color: const Color.fromARGB(85, 255, 255, 255).withOpacity(0.5),
         ),
         child: Container(
           color: Color.fromARGB(113, 255, 255, 255).withOpacity(0.4),
@@ -31,7 +31,7 @@ class _SettingsPageState extends State<SettingsPage> {
             child: Container(
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 87, 86, 86).withOpacity(0.4),
-                borderRadius: BorderRadius.circular(15.0), // Add this line
+                borderRadius: BorderRadius.circular(15.0),
               ),
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: Column(
@@ -44,8 +44,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       decoration: BoxDecoration(
                         color:
                             Color.fromARGB(132, 175, 175, 175).withOpacity(0.3),
-                        borderRadius:
-                            BorderRadius.circular(15.0), // Add this line
+                        borderRadius: BorderRadius.circular(15.0),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(
@@ -84,33 +83,28 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   settingList(
                     title: 'Security & Privacy',
-                    onPressed: () {
-                      // Handle tap
-                    },
+                    onPressed: () {},
                   ),
                   settingList(
                     title: 'Report a Problem',
-                    onPressed: () {
-                      // Handle tap
-                    },
+                    onPressed: () {},
                   ),
                   settingList(
                     title: 'Support',
                     onPressed: () {
-                      // Handle tap
+                      Navigator.pushNamed(context, SupportPage.id);
                     },
                   ),
                   settingList(
                     title: 'Terms & Privacy Policy',
                     onPressed: () {
-                      // Handle tap
+                      Navigator.pushNamed(context, TermsPage.id);
                     },
                   ),
                   settingList(
                     title: 'Log Out',
                     onPressed: () {
                       Navigator.pushNamed(context, SignInScreen.id);
-                      // Handle tap
                     },
                   ),
                 ],

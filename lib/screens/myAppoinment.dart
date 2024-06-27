@@ -24,11 +24,11 @@ class MyAppoinment extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-                'images/background_image.jpg'), // replace with your image
+                'images/background_image.jpg'), 
             fit: BoxFit.cover,
           ),
           color: const Color.fromARGB(85, 255, 255, 255)
-              .withOpacity(0.5), // this makes the color white with 50% opacity
+              .withOpacity(0.5), 
         ),
         child: Container(
           color: Colors.white.withOpacity(0.4),
@@ -145,7 +145,7 @@ List<Map<String, String>> myAppointmentList = [
     'doctor_name': 'Dr. John Doe',
     'patient_name': 'John Smith',
   },
-  // Add more appointments here
+  
 ];
 
 List<Map<String, String>> mySecondAppointmentList = [
@@ -157,5 +157,5 @@ List<Map<String, String>> mySecondAppointmentList = [
     'doctor_name': 'Dr. Jane Doe',
     'patient_name': 'Jane Smith',
   },
-  // Add more appointments here
+
 ];

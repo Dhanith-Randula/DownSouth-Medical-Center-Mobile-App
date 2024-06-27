@@ -5,6 +5,7 @@ import 'package:flash_chat/components/image_text_homepage.dart';
 import 'package:flash_chat/screens/signin_screen.dart';
 import 'package:flash_chat/screens/find_medical_center.dart';
 import 'package:flash_chat/screens/myAppoinment.dart';
+import 'package:flash_chat/screens/aboutus.dart';
 
 import 'package:flash_chat/screens/search_map_page.dart';
 import 'package:flash_chat/screens/emergency.dart';
@@ -42,12 +43,10 @@ class _HomePageState extends State<HomePage>
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(
-                'images/background_image.jpg'), // replace with your image
+            image: AssetImage('images/background_image.jpg'),
             fit: BoxFit.cover,
           ),
-          color: const Color.fromARGB(85, 255, 255, 255)
-              .withOpacity(0.5), // this makes the color white with 50% opacity
+          color: const Color.fromARGB(85, 255, 255, 255).withOpacity(0.5),
         ),
         child: Padding(
           padding:
@@ -55,7 +54,7 @@ class _HomePageState extends State<HomePage>
           child: Container(
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.5),
-              borderRadius: BorderRadius.circular(15.0), // Add this line
+              borderRadius: BorderRadius.circular(15.0),
             ),
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: Column(
@@ -125,10 +124,10 @@ class _HomePageState extends State<HomePage>
                   height: 10,
                 ),
                 RowImageText(
-                  title1: 'HOSPITALS',
+                  title1: 'ABOUT US',
                   image1: AssetImage('images/image5.jpeg'),
                   onPressed1: () {
-                    Navigator.pushNamed(context, SignInScreen.id);
+                    Navigator.pushNamed(context, AboutUsPage.id);
                   },
                   title2: 'SETTING',
                   image2: AssetImage('images/setting.png'),

@@ -104,7 +104,7 @@ class _AppointmentPageState extends State<AppointmentPage> {
                   hinttext: 'Enter Medical Center Name',
                 ),
 
-                // Add medical center selection widget here
+              
                 SizedBox(height: 16.0),
                 Text_part(
                   text1: 'Doctor Name',
@@ -124,7 +124,7 @@ class _AppointmentPageState extends State<AppointmentPage> {
                   lable: 'Description',
                   hinttext: 'Enter Description',
                 ),
-                // Add description input widget here
+          
                 SizedBox(
                   height: 16.0,
                 ),

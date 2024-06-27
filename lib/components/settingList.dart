@@ -26,7 +26,7 @@ class settingList extends StatelessWidget {
             onTap: onPressed,
             mouseCursor: SystemMouseCursors.click,
           ),
-          // Add more ListTile widgets for more settings
+      
         ],
       ),
     );
