@@ -8,8 +8,7 @@ import 'dart:developer' as dev;
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flash_chat/screens/secure_storage.dart';
+
 
 class SignInScreen extends StatefulWidget {
   static const String id = 'SignIn_screen';
@@ -28,8 +27,9 @@ class _SignInScreenState extends State<SignInScreen> {
   // await storage.delete(key: 'jwt');
 
   void signin() async {
-    var uri = Uri.parse("http://192.168.1.102:4000/auth/api/v1/auth/login");
-    dev.log("signup");
+    var uri = Uri.parse("http://192.168.43.62:4001/api/v1/auth/login");
+    // dev.log("signup");
+    // Navigator.pushNamed(context, HomePage.id);
 
     var request = http.MultipartRequest('POST', uri)
       ..fields['username'] = usernameController.text
@@ -37,9 +37,10 @@ class _SignInScreenState extends State<SignInScreen> {
 
     dev.log("request ${request.toString()}");
     dev.log("request ${request.fields.toString()}");
-
+// we were aneble to connec to the back end ... but i will show what we have done now
     var response = await request.send();
     if (response.statusCode == 200) {
+      // var response = await request.send();
       var responseBody = await response.stream.bytesToString();
       dev.log('Response body: $responseBody');
 
@@ -121,13 +122,13 @@ class _SignInScreenState extends State<SignInScreen> {
                         controller: usernameController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter Email';
+                            return 'Please enter UserName';
                           }
                           return null;
                         },
                         decoration: InputDecoration(
-                          label: const Text('Email'),
-                          hintText: 'Enter Email',
+                          label: const Text('UserName'),
+                          hintText: 'Enter User Name',
                           hintStyle: const TextStyle(
                             color: Colors.black26,
                           ),
